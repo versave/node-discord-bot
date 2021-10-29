@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ivo-discord-bot.iml" filepath="$PROJECT_DIR$/.idea/ivo-discord-bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ivo-discord-bot-labels/.idea/ivo-discord-bot-labels.iml" filepath="$PROJECT_DIR$/../ivo-discord-bot-labels/.idea/ivo-discord-bot-labels.iml" />
+    </modules>
+  </component>
+</project>
