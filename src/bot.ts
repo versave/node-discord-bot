@@ -3,12 +3,14 @@ import {
     Message,
     Collection,
     Command,
+    TextChannel,
 } from 'discord.js';
 import fs from 'fs';
 import { CronJob } from 'cron';
 import { users } from './users';
-import { getChannelById, setTomorrowDate } from './utils';
+import { getChannelById, randomIndex, setTomorrowDate } from './utils';
 import { handleCronJob, subscribersSettings } from './subscribers/subscribers';
+import { botPhrasesLabels } from "./bot-data";
 
 require('dotenv').config();
 
@@ -24,9 +26,13 @@ for(const file of commandFiles) {
     client.commands.set(cmd.name, cmd);
 }
 
-const job = new CronJob('0 0 12,19 * * *', () => {
+const messageRandomPhrase = (channel: TextChannel) => {
+    channel.send(botPhrasesLabels[randomIndex(botPhrasesLabels.length)]);
+}
+
+const job = new CronJob('0 0 20 * * *', () => {
     const channel = getChannelById(client, subscribersSettings.subscriberAnnouncementsChannelId);
-    handleCronJob(channel);
+    messageRandomPhrase(channel);
 }, null, true, 'Europe/Sofia');
 
 client.once('ready', () => {
