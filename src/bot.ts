@@ -30,7 +30,7 @@ const messageRandomPhrase = (channel: TextChannel) => {
     channel.send(botPhrasesLabels[randomIndex(botPhrasesLabels.length)]);
 }
 
-const job = new CronJob('0 0 20 * * *', () => {
+const job = new CronJob('0 0 12,20 * * *', () => {
     const channel = getChannelById(client, subscribersSettings.subscriberAnnouncementsChannelId);
     messageRandomPhrase(channel);
 }, null, true, 'Europe/Sofia');
