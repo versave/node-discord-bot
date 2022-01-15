@@ -24,7 +24,7 @@ for(const file of commandFiles) {
     client.commands.set(cmd.name, cmd);
 }
 
-const job = new CronJob('0 0 12,19 * * *', () => {
+const job = new CronJob('0 0 12,20 * * *', () => {
     const channel = getChannelById(client, subscribersSettings.subscriberAnnouncementsChannelId);
     handleCronJob(channel);
 }, null, true, 'Europe/Sofia');
